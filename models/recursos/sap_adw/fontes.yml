@@ -66,9 +66,13 @@ sources:
              - not_null
           - name: firstname
             description: Primeiro nome da pessoa referente ao businessentityid
+            tests:
+              - not_null              
           - name: lastname
             description: Último sobrenome da pessoa referente ao businessentityid
-
+            tests:
+              - not_null
+              
       - name: customer
         description: Tabela com dados do pedido do cliente, conectada a SalesOrderHeader
         columns:
