@@ -5,7 +5,7 @@ sources:
     description: Banco de dados do SAP AdventureWorks
     schema: sap_adw
     tables:      
-      # Tabelas que serão usadas na dimensão endereço
+      # Tabelas usadas na dimensão endereço
       - name: address
         description: Tabela que conecta a ramificação de endereço a SalesOrderHeader
         columns:
@@ -43,9 +43,9 @@ sources:
           - name: pais
             description: Nome do país relativo ao countryregioncode
            
-      # Tabela que será usada na dimensão cartão de crédito
+      # Tabela usada na dimensão cartão de crédito
       - name: creditcard
-        description: Tabela com dados do cartão de crédito
+        description: Tabela com dados do cartão de crédito, conectada a SalesOrderHeader
         columns:
           - name: creditcardid
             description: Chave primária da tabela 
@@ -53,4 +53,34 @@ sources:
               - unique
               - not_null
           - name: cardtype
-            description: Tipo do cartão referente ao id_cartao
+            description: Tipo do cartão referente ao creditcardid
+
+      # Tabelas usadas na dimensão cliente
+      - name: person
+        description: Tabela com dados pessoais do cliente, conectada a SalesOrderHeader
+        columns:
+          - name: businessentityid
+            description: Chave primária da tabela
+            tests:
+             - unique
+             - not_null
+          - name: firstname
+            description: Primeiro nome da pessoa referente ao businessentityid
+          - name: lastname
+            description: Último sobrenome da pessoa referente ao businessentityid
+
+      - name: customer
+        description: Tabela com dados do pedido do cliente, conectada a SalesOrderHeader
+        columns:
+          - name: customerid
+            description: Chave primária da tabela
+            tests:
+             - unique
+             - not_null
+          - name: personid
+            description: Chave estrangeira da tabela Person
+          - name: storeid
+            description: Chave estrangeira da tabela Store
+          - name: territoryid
+            description: Chave estrangeira da tabela SalesTerritory
+          
