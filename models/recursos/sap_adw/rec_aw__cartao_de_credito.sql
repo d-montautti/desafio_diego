@@ -1,8 +1,8 @@
 with
     source_creditcard as(
         select
-            creditcardid as id_cartao
-            , cardtype as tipo_cartao
+            cast(creditcardid as int) as id_cartao
+            , cast(cardtype as string) as tipo_cartao
             --, cardnumber
             --, expmonth
             --, expyear
