@@ -110,6 +110,15 @@ sources:
             description: Nome do motivo de venda
           - name: reasontype
             description: Tipo do motivo de venda
+
+      # Tabela usada na dimensão produto
+      - name: product
+        description: Tabela com informações do produto, conectada a SalesOrderHeader
+        columns:
+          - name: productid
+            description: Chave primária da tabela
+          - name: name
+            description: Nome do produto
             
       # Tabelas usadas na tabela de fatos pedido
       - name: salesorderheader
