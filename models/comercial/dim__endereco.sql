@@ -20,6 +20,7 @@ with
             , address.cidade
             , stateprovince.id_estado
             , stateprovince.estado
+            , stateprovince.id_territorio
             , countryregion.codigo_pais
             , countryregion.pais
         from stateprovince

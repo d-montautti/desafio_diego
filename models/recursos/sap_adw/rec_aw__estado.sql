@@ -2,7 +2,7 @@ with
     source_stateprovince as(
         select
             cast(stateprovinceid as int) as id_estado
-            --, territoryid
+            , cast(territoryid as int) as id_territorio
             --, stateprovincecode
             , cast(countryregioncode as string) as codigo_pais
             --, isonlystateprovinceflag
