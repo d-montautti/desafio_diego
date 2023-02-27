@@ -87,4 +87,29 @@ sources:
             description: Chave estrangeira da tabela Store
           - name: territoryid
             description: Chave estrangeira da tabela SalesTerritory
+
+      # Tabelas usadas na dimensão motivo de venda
+      - name: salesorderheadersalesreason
+        description: Tabela com dados do motivo de venda, conectada a SalesOrderHeader
+        columns:
+          - name: salesorderid
+            description: Chave primária da tabela
+            tests:
+             - not_null
+          - name: salesreasonid
+            description: Chave estrangeira da tabela SalesReason
+
+      - name: salesreason
+        description: Tabela com motivo de venda
+        columns:
+          - name: salesreasonid
+            description: Chave primária da tabela
+            tests:
+              - not_null
+          - name: name
+            description: Nome do motivo de venda
+          - name: reasontype
+            description: Tipo do motivo de venda
+            
+            
           

@@ -18,7 +18,7 @@ with
         left join person on customer.id_pessoa = person.id_entidade
     )
 
-    , transformed as (
+    , transformacoes as (
         select
             row_number() over (order by id_cliente) as pk_cliente
             , id_cliente
@@ -29,4 +29,4 @@ with
     )
 
 select *
-from transformed
+from transformacoes
