@@ -111,5 +111,43 @@ sources:
           - name: reasontype
             description: Tipo do motivo de venda
             
+      # Tabelas usadas na tabela de fatos pedido
+      - name: salesorderheader
+        description: Tabela com o cabeçalho do pedido = SalesOrderHeader
+        columns:
+          - name: salesorderid
+            description: Chave primária da tabela
+            tests:
+              - unique              
+              - not_null
+          - name: customerid
+            description: Chave primária da tabela rec_aw__cliente
+          - name: territoryid
+            description: Chave estrangeira da tabela território, presente na tabela rec_aw__cliente
+          - name: creditcardid
+            description: Tipo do motivo de venda
+          - name: orderdate
+            description: Data do pedido
+          - name: status
+            description: Status do pedido
+          - name: totaldue
+            description: Valor total do pedido
+
+      - name: salesorderdetail
+        description: Tabela com detalhes do pedido, conectada a SalesOrderHeader
+        columns:
+          - name: salesorderid
+            description: Chave primária da tabela
+            tests:
+              - unique              
+              - not_null
+          - name: productid
+            description: Chave primária da tabela rec_aw__produto
+          - name: orderqty
+            description: Quantidade do pedido
+          - name: unitprice
+            description: Preço unitário
+          - name: unitpricediscount
+            description: Desconto unitário
             
           
