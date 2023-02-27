@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: dim__motivo_venda
+    columns:
+      - name: pk_motivo
+        description: Chave primária da dim__motivo_venda
+        tests:
+          - unique
+          - not_null
+      - name: id_motivo
+        description: Chave primária da rec_aw__motivo_venda
+      - name: id_pedido
+        description: Chave primária da rec_aw__motivo_venda_pedido
+      - name: motivo
+        description: Nome do motivo
+      - name: tipo_motivo
+        description: Classificação do motivo
